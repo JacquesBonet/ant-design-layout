@@ -255,6 +255,7 @@
     "react-text-loop": "^2.3.0",
     "react-virtualized": "^9.22.0",
     "react-window": "^1.8.5",
+    "release-it": "^14.2.1",
     "remark": "^13.0.0",
     "remark-cli": "^9.0.0",
     "remark-lint": "^8.0.0",
