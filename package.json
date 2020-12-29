@@ -1,6 +1,6 @@
 {
   "name": "ant-design-layout",
-  "version": "4.8.2",
+  "version": "4.8.3",
   "description": "Only the layout part of antd library",
   "title": "Ant Design Layout",
   "keywords": [
@@ -92,11 +92,6 @@
     "version": "node ./scripts/generate-version",
     "argos": "argos upload imageSnapshots"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
@@ -179,6 +174,7 @@
     "bisheng-plugin-toc": "^0.4.4",
     "bundlesize": "^0.18.0",
     "chalk": "^4.0.0",
+    "checkdeps": "^0.1.9",
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^5.0.2",
     "cross-env": "^7.0.0",
@@ -220,7 +216,7 @@
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",
     "less-vars-to-js": "^1.3.0",
-    "lint": "^1.0.1",
+    "lint": "^1.1.2",
     "logrocket": "^1.0.0",
     "logrocket-react": "^4.0.0",
     "lz-string": "^1.4.4",
