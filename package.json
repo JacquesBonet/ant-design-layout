@@ -1,6 +1,6 @@
 {
   "name": "ant-design-layout",
-  "version": "4.8.3",
+  "version": "4.8.4",
   "description": "Only the layout part of antd library",
   "title": "Ant Design Layout",
   "keywords": [
@@ -50,6 +50,7 @@
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "bundlesize": "bundlesize",
+    "dist": "antd-tools run dist",
     "check-commit": "node ./scripts/check-commit",
     "prestart": "npm run version",
     "precompile": "npm run version",
