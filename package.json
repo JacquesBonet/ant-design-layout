@@ -43,7 +43,7 @@
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/antd.min.js",
+  "unpkg": "dist/antd-design-layout.min.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "api-collection": "antd-tools run api-collection",
@@ -111,7 +111,6 @@
     "@babel/runtime": "^7.11.2",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",
-    "rc-motion": "^2.4.0",
     "scroll-into-view-if-needed": "^2.2.25"
   },
   "devDependencies": {

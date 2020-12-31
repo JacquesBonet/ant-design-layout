@@ -93,7 +93,7 @@ function getThemeVariables(options = {}) {
   return themeVar;
 }
 module.exports = {
-  compactThemeSingle,
+  getThemeVariables
 }`,
       {
         flag: 'a',
