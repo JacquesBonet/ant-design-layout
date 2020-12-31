@@ -1,6 +1,6 @@
 {
   "name": "ant-design-layout",
-  "version": "4.9.4",
+  "version": "4.9.5",
   "description": "Only the layout part of antd library",
   "title": "Ant Design Layout",
   "keywords": [
@@ -16,11 +16,11 @@
   ],
   "homepage": "https://ant.design",
   "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
+    "url": "https://github.com/jacquesbonet/ant-design-layout/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "https://github.com/jacquesbonet/ant-design-layout"
   },
   "license": "MIT",
   "contributors": [
