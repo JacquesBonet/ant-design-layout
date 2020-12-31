@@ -12,7 +12,7 @@ title: useBreakpoint Hook
 Use `useBreakpoint` Hook provide personalized layout.
 
 ```jsx
-import { Grid, Tag } from 'antd';
+import { Grid } from 'antd';
 
 const { useBreakpoint } = Grid;
 
@@ -24,9 +24,7 @@ function UseBreakpointDemo() {
       {Object.entries(screens)
         .filter(screen => !!screen[1])
         .map(screen => (
-          <Tag color="blue" key={screen[0]}>
-            {screen[0]}
-          </Tag>
+          <div key={screen[0]}>{screen[0]}</div>
         ))}
     </>
   );

@@ -14,7 +14,7 @@ title:
 Customize image source, image size, description and extra content.
 
 ```jsx
-import { Empty, Button } from 'antd';
+import { Empty } from 'antd';
 
 ReactDOM.render(
   <Empty
@@ -28,7 +28,7 @@ ReactDOM.render(
       </span>
     }
   >
-    <Button type="primary">Create Now</Button>
+    <p type="primary">Create Now</p>
   </Empty>,
   mountNode,
 );

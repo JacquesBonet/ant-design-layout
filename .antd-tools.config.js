@@ -3,7 +3,7 @@ const path = require('path');
 const defaultVars = require('./scripts/default-vars');
 
 function generateThemeFileContent(theme) {
-    return `const { ${theme}ThemeSingle } = require('./theme');const defaultTheme = require('./default-theme');\n
+  return `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
 module.exports = {
   ...defaultTheme,
   ...${theme}ThemeSingle
@@ -12,82 +12,82 @@ module.exports = {
 
 // We need compile additional content for antd user
 function finalizeCompile() {
-    if (fs.existsSync(path.join(__dirname, './lib'))) {
-        // Build a entry less file to dist/antd.less
-        const componentsPath = path.join(process.cwd(), 'components');
-        let componentsLessContent = '';
-        // Build components in one file: lib/style/components.less
-        fs.readdir(componentsPath, (err, files) => {
-            files.forEach(file => {
-                if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
-                    componentsLessContent += `@import "../${path.join(file, 'style', 'index.less')}";\n`;
-                }
-            });
-            fs.writeFileSync(
-                path.join(process.cwd(), 'lib', 'style', 'components.less'),
-                componentsLessContent,
-            );
-        });
-    }
+  if (fs.existsSync(path.join(__dirname, './lib'))) {
+    // Build a entry less file to dist/antd.less
+    const componentsPath = path.join(process.cwd(), 'components');
+    let componentsLessContent = '';
+    // Build components in one file: lib/style/components.less
+    fs.readdir(componentsPath, (err, files) => {
+      files.forEach(file => {
+        if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
+          componentsLessContent += `@import "../${path.join(file, 'style', 'index.less')}";\n`;
+        }
+      });
+      fs.writeFileSync(
+        path.join(process.cwd(), 'lib', 'style', 'components.less'),
+        componentsLessContent,
+      );
+    });
+  }
 }
 
 function buildThemeFile(theme, vars) {
-    // Build less entry file: dist/antdlayout.${theme}.less
-    if (theme !== 'default') {
-        fs.writeFileSync(
-            path.join(process.cwd(), 'dist', `antdlayout.${theme}.less`),
-            `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
-        );
-        // eslint-disable-next-line no-console
-        console.log(`Built a entry less file to dist/antdlayout.${theme}.less`);
-    } else {
-        fs.writeFileSync(
-            path.join(process.cwd(), 'dist', `default-theme.js`),
-            `module.exports = ${JSON.stringify(vars, null, 2)};\n`,
-        );
-        return;
-    }
-
-    // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
-
+  // Build less entry file: dist/antd.${theme}.less
+  if (theme !== 'default') {
     fs.writeFileSync(
-        path.join(process.cwd(), 'dist', `theme.js`),
-        `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
-        {
-            flag: 'a',
-        },
+      path.join(process.cwd(), 'dist', `antd.${theme}.less`),
+      `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
     );
-
-    fs.writeFileSync(
-        path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-        generateThemeFileContent(theme),
-    );
-
     // eslint-disable-next-line no-console
-    console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
+    console.log(`Built a entry less file to dist/antd.${theme}.less`);
+  } else {
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', `default-theme.js`),
+      `module.exports = ${JSON.stringify(vars, null, 2)};\n`,
+    );
+    return;
+  }
+
+  // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
+
+  fs.writeFileSync(
+    path.join(process.cwd(), 'dist', `theme.js`),
+    `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
+    {
+      flag: 'a',
+    },
+  );
+
+  fs.writeFileSync(
+    path.join(process.cwd(), 'dist', `${theme}-theme.js`),
+    generateThemeFileContent(theme),
+  );
+
+  // eslint-disable-next-line no-console
+  console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
 }
 
 function finalizeDist() {
-    if (fs.existsSync(path.join(__dirname, './dist'))) {
-        // Build less entry file: dist/antd.less
-        fs.writeFileSync(
-            path.join(process.cwd(), 'dist', 'antdlayout.less'),
-            '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
-        );
-        // eslint-disable-next-line no-console
-        fs.writeFileSync(
-            path.join(process.cwd(), 'dist', 'theme.js'),
-            `const defaultTheme = require('./default-theme.js');\n`,
-        );
-        // eslint-disable-next-line no-console
-        console.log('Built a entry less file to dist/antdlayout.less');
-        buildThemeFile('default', defaultVars);
-        fs.writeFileSync(
-            path.join(process.cwd(), 'dist', `theme.js`),
-            `
+  if (fs.existsSync(path.join(__dirname, './dist'))) {
+    // Build less entry file: dist/antd.less
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', 'antd.less'),
+      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
+    );
+    // eslint-disable-next-line no-console
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', 'theme.js'),
+      `const defaultTheme = require('./default-theme.js');\n`,
+    );
+    // eslint-disable-next-line no-console
+    console.log('Built a entry less file to dist/antd.less');
+    buildThemeFile('default', defaultVars);
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', `theme.js`),
+      `
 function getThemeVariables(options = {}) {
   let themeVar = {
-    'hack': \`true;@import "\${require.resolve('antdlayout/lib/style/color/colorPalette.less')}";\`,
+    'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
     ...defaultTheme
   };
   return themeVar;
@@ -95,19 +95,19 @@ function getThemeVariables(options = {}) {
 module.exports = {
   compactThemeSingle,
 }`,
-            {
-                flag: 'a',
-            },
-        );
-    }
+      {
+        flag: 'a',
+      },
+    );
+  }
 }
 
 module.exports = {
-    compile: {
-        finalize: finalizeCompile,
-    },
-    dist: {
-        finalize: finalizeDist,
-    },
-    generateThemeFileContent,
+  compile: {
+    finalize: finalizeCompile,
+  },
+  dist: {
+    finalize: finalizeDist,
+  },
+  generateThemeFileContent,
 };

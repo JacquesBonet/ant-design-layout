@@ -14,9 +14,7 @@ export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  /**
-   * @since 3.16.0
-   */
+  /** @since 3.16.0 */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
@@ -37,7 +35,6 @@ const Empty: EmptyType = ({
   imageStyle,
   ...restProps
 }) => {
-
   return (
     <>
       {(locale: TransferLocale) => {

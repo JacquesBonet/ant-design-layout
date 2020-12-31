@@ -14,7 +14,7 @@ title:
 A simple playground for column count and gutter.
 
 ```jsx
-import { Row, Col, Slider } from 'antd';
+import { Row, Col } from 'antd';
 
 const gutters = {};
 const vgutters = {};
@@ -66,39 +66,15 @@ class App extends React.Component {
       <>
         <span>Horizontal Gutter (px): </span>
         <div style={{ width: '50%' }}>
-          <Slider
-            min={0}
-            max={Object.keys(gutters).length - 1}
-            value={gutterKey}
-            onChange={this.onGutterChange}
-            marks={gutters}
-            step={null}
-            tipFormatter={value => gutters[value]}
-          />
+          <p>Hello</p>
         </div>
         <span>Vertical Gutter (px): </span>
         <div style={{ width: '50%' }}>
-          <Slider
-            min={0}
-            max={Object.keys(vgutters).length - 1}
-            value={vgutterKey}
-            onChange={this.onVGutterChange}
-            marks={vgutters}
-            step={null}
-            tipFormatter={value => vgutters[value]}
-          />
+          <p>Huhu</p>
         </div>
         <span>Column Count:</span>
         <div style={{ width: '50%', marginBottom: 48 }}>
-          <Slider
-            min={0}
-            max={Object.keys(colCounts).length - 1}
-            value={colCountKey}
-            onChange={this.onColCountChange}
-            marks={colCounts}
-            step={null}
-            tipFormatter={value => colCounts[value]}
-          />
+          <p>Tatata</p>
         </div>
         <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
         <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>

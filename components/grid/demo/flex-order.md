@@ -18,7 +18,7 @@ import { Row, Col, Divider } from 'antd';
 
 ReactDOM.render(
   <>
-    <Divider orientation="left">Normal</Divider>
+    <br />
     <Row>
       <Col span={6} order={4}>
         1 col-order-4
@@ -33,7 +33,7 @@ ReactDOM.render(
         4 col-order-1
       </Col>
     </Row>
-    <Divider orientation="left">Responsive</Divider>
+    <br />
     <Row>
       <Col span={6} xs={{ order: 1 }} sm={{ order: 2 }} md={{ order: 3 }} lg={{ order: 4 }}>
         1 col-order-responsive

@@ -26,13 +26,12 @@ You can use a array to set vertical spacing, `[horizontal, vertical]` `[16, { xs
 > vertical gutter was supported after `3.24.0`.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col } from 'antd';
 
 const style = { background: '#0092ff', padding: '8px 0' };
 
 ReactDOM.render(
   <>
-    <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
@@ -47,7 +46,7 @@ ReactDOM.render(
         <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Divider orientation="left">Responsive</Divider>
+    <br />
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
@@ -62,7 +61,7 @@ ReactDOM.render(
         <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Divider orientation="left">Vertical</Divider>
+    <br />
     <Row gutter={[16, 24]}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>

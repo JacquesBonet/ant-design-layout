@@ -16,43 +16,37 @@ title:
 Child elements depending on the value of the `start`,`center`, `end`,`space-between`, `space-around`, which are defined in its parent node typesetting mode.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <>
-    <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-
-    <Divider orientation="left">sub-element align center</Divider>
+    <br />
     <Row justify="center">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-
-    <Divider orientation="left">sub-element align right</Divider>
+    <br />
     <Row justify="end">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-
-    <Divider orientation="left">sub-element monospaced arrangement</Divider>
-    <Row justify="space-between">
+    <br />><Row justify="space-between">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-
-    <Divider orientation="left">sub-element align full</Divider>
+    <br />>
     <Row justify="space-around">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>

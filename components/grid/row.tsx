@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
@@ -32,6 +33,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     wrap,
     ...others
   } = props;
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [screens, setScreens] = React.useState<ScreenMap>({
     xs: true,
@@ -77,7 +80,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return results;
   };
 
-  const prefixCls = '';
+  const prefixCls = getPrefixCls('row', customizePrefixCls);
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,

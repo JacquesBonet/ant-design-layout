@@ -3,6 +3,8 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import {
   ConfigConsumer,
   ConfigContext,
@@ -44,6 +46,7 @@ export interface ConfigProviderProps {
   input?: {
     autoComplete?: string;
   };
+  locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
@@ -59,24 +62,22 @@ export interface ConfigProviderProps {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
 } = props => {
-  React.useEffect(() => {
-    if (props.direction) {
-    }
-  }, [props.direction]);
+  React.useEffect(() => {}, [props.direction]);
 
-  const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
-    return (suffixCls: string, customizePrefixCls?: string) => {
-      const { prefixCls } = props;
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => (
+    suffixCls: string,
+    customizePrefixCls?: string,
+  ) => {
+    const { prefixCls } = props;
 
-      if (customizePrefixCls) return customizePrefixCls;
+    if (customizePrefixCls) return customizePrefixCls;
 
-      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+    const mergedPrefixCls = prefixCls || context.getPrefixCls('');
 
-      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
-    };
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
   };
 
-  const renderProvider = (context: ConfigConsumerProps) => {
+  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
       getTargetContainer,
@@ -85,6 +86,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       csp,
       autoInsertSpaceInButton,
       input,
+      locale,
       pageHeader,
       componentSize,
       direction,
@@ -98,6 +100,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       getPrefixCls: getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
       direction,
       space,
       virtual,
@@ -124,21 +127,29 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       config.input = input;
     }
 
-    let childNode = children;
-
+    const childrenWithLocale =
+      locale === undefined ? (
+        children
+      ) : (
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {children}
+        </LocaleProvider>
+      );
     return (
       <SizeContextProvider size={componentSize}>
-        <ConfigContext.Provider value={config}>
-            {childNode}
-        </ConfigContext.Provider>
+        <ConfigContext.Provider value={config}>{childrenWithLocale}</ConfigContext.Provider>
       </SizeContextProvider>
     );
   };
 
   return (
+    <LocaleReceiver>
+      {(_, __, legacyLocale) => (
         <ConfigConsumer>
-          {context => renderProvider(context)}
+          {context => renderProvider(context, legacyLocale as Locale)}
         </ConfigConsumer>
+      )}
+    </LocaleReceiver>
   );
 };
 
