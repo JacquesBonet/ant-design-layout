@@ -91,7 +91,7 @@ const App = () => (
 And import style manually:
 
 ```jsx
-import 'ant-design-layout/dist/ant-design-layout.css'; // or 'ant-design-layout/dist/antd.less'
+import 'ant-design-layout/dist/ant-design-layout.css'; // or 'ant-design-layout/dist/ant-design-layout.less'
 ```
 
 ### TypeScript
