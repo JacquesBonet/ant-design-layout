@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const defaultVars = require('./scripts/default-vars');
 
 function generateThemeFileContent(theme) {
   return `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
