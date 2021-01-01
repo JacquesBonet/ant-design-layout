@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "contributors": [
-    "Jacquyes Bonet",
+    "Jacques Bonet",
     "ant"
   ],
   "funding": {
@@ -151,7 +151,6 @@
     "docsearch.js": "^2.6.3",
     "enquire-js": "^0.2.1",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "1.2.0",
     "enzyme-to-json": "^3.6.0",
     "esbuild-webpack-plugin": "^1.0.0",
     "eslint": "^7.9.0",

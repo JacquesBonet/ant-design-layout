@@ -30,83 +30,9 @@ function finalizeCompile() {
   }
 }
 
-function buildThemeFile(theme, vars) {
-  // Build less entry file: dist/antd.${theme}.less
-  if (theme !== 'default') {
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `antd.${theme}.less`),
-      `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
-    );
-    // eslint-disable-next-line no-console
-    console.log(`Built a entry less file to dist/antd.${theme}.less`);
-  } else {
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `default-theme.js`),
-      `module.exports = ${JSON.stringify(vars, null, 2)};\n`,
-    );
-    return;
-  }
-
-  // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
-
-  fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `theme.js`),
-    `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
-    {
-      flag: 'a',
-    },
-  );
-
-  fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-    generateThemeFileContent(theme),
-  );
-
-  // eslint-disable-next-line no-console
-  console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
-}
-
-function finalizeDist() {
-  if (fs.existsSync(path.join(__dirname, './dist'))) {
-    // Build less entry file: dist/ant-design-layout.less
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'ant-design-layout.less'),
-      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
-    );
-    // eslint-disable-next-line no-console
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'theme.js'),
-      `const defaultTheme = require('./default-theme.js');\n`,
-    );
-    // eslint-disable-next-line no-console
-    console.log('Built a entry less file to dist/ant-design-layout.less');
-    buildThemeFile('default', defaultVars);
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `theme.js`),
-      `
-function getThemeVariables(options = {}) {
-  let themeVar = {
-    'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
-    ...defaultTheme
-  };
-  return themeVar;
-}
-module.exports = {
-  getThemeVariables
-}`,
-      {
-        flag: 'a',
-      },
-    );
-  }
-}
-
 module.exports = {
   compile: {
     finalize: finalizeCompile,
-  },
-  dist: {
-    finalize: finalizeDist,
   },
   generateThemeFileContent,
 };

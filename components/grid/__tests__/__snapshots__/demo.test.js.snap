@@ -148,7 +148,6 @@ Array [
     </div>
   </div>,
   <br />,
-  ">",
   <div
     class="ant-row ant-row-space-between"
   >
@@ -174,7 +173,6 @@ Array [
     </div>
   </div>,
   <br />,
-  ">",
   <div
     class="ant-row ant-row-space-around"
   >
@@ -205,7 +203,6 @@ Array [
 exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
 Array [
   <br />,
-  ">",
   <div
     class="ant-row ant-row-center ant-row-top"
   >
