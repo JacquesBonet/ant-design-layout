@@ -13,15 +13,6 @@ function ignoreMomentLocale(webpackConfig) {
   webpackConfig.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
 }
 
-function addLocales(webpackConfig) {
-  let packageName = 'antd-with-locales';
-  if (webpackConfig.entry['antd.min']) {
-    packageName += '.min';
-  }
-  webpackConfig.entry[packageName] = './index-with-locales.js';
-  webpackConfig.output.filename = '[name].js';
-}
-
 function externalMoment(config) {
   config.externals.moment = {
     root: 'moment',
@@ -59,7 +50,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
-    addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
