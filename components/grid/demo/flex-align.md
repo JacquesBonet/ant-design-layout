@@ -20,7 +20,7 @@ const DemoBox = props => <p className={`height-${props.value}`}>{props.children}
 
 ReactDOM.render(
   <>
-    <br />>
+    <br />
     <Row justify="center" align="top">
       <Col span={4}>
         <DemoBox value={100}>col-4</DemoBox>

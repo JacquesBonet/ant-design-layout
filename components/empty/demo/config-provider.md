@@ -22,8 +22,6 @@ const customizeRenderEmpty = () => (
   </div>
 );
 
-const style = { width: 200 };
-
 class Demo extends React.Component {
   state = {
     customize: false,
