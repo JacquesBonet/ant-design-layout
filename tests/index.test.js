@@ -25,8 +25,5 @@ describe('antd dist files', () => {
       expect(antd).toBeTruthy();
       expect(antd.version).toBe(pkg.version);
     });
-
-    /* eslint-disable global-require,import/no-unresolved */
-    const defaultTheme = require('../dist/default-theme');
   }
 });
