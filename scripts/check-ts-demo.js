@@ -41,8 +41,8 @@ const { spawn } = require('child_process');
     // Replace mountNode
     script = script.replace('mountNode', `document.getElementById('#root')`);
 
-    // Replace antd
-    script = script.replace(`from 'antd'`, `from '..'`);
+    // Replace ant-design-layout
+    script = script.replace(`from 'ant-design-layout'`, `from '..'`);
 
     // Add path
     script = `/* eslint-disabled */\n// ${demoPath}\n${script}`;

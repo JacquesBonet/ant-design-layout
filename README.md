@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Ant Design</h1>
+<h1 align="center">Ant Design Layout</h1>
 
 <div align="center">
 
@@ -17,27 +17,6 @@ The layout part of ant-design
 [![Follow Twitter][twitter-image]][twitter-url] [![Discussions][discussions-image]][discussions-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/antd
-[github-action-image]: https://github.com/ant-design/ant-design/workflows/test/badge.svg
-[github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3Atest
-[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
-[david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
-[david-dev-image]: https://img.shields.io/david/dev/ant-design/ant-design?style=flat-square
-[david-url]: https://david-dm.org/ant-design/ant-design
-[download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
-[download-url]: https://npmjs.org/package/antd
-[lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
-[lgtm-url]: https://lgtm.com/projects/g/ant-design/ant-design/alerts/
-[fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield
-[fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield
-[help-wanted-image]: https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open
-[help-wanted-url]: https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
-[twitter-image]: https://img.shields.io/twitter/follow/AntDesignUI.svg?label=Ant%20Design&style=social
-[twitter-url]: https://twitter.com/AntDesignUI
-[discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
-[discussions-url]: https://github.com/ant-design/ant-design/discussions
 
 </div>
 
@@ -47,12 +26,12 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
 ## ✨ Features
 
-- 🌈 Enterprise-class UI designed for web applications.
-- 📦 A set of high-quality React components out of the box.
+- 🌈 Its the layout components of ant-design library
+- 📦 A set of high-quality React layout components out of the box.
 - 🛡 Written in TypeScript with predictable static types.
 - ⚙️ Whole package of design resources and development tools.
-- 🌍 Internationalization support for dozens of languages.
-- 🎨 Powerful theme customization in every detail.
+- 🌍 Small size.
+- 🎨 Could be use with others UI components. No side effect.
 
 ## 🖥 Environment Support
 
@@ -96,7 +75,7 @@ import 'ant-design-layout/dist/ant-design-layout.css'; // or 'ant-design-layout/
 
 ### TypeScript
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
+`ant-design-layout` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
 
 ## 🔗 Links
 
@@ -107,31 +86,13 @@ import 'ant-design-layout/dist/ant-design-layout.css'; // or 'ant-design-layout/
 
 Use Gitpod, a free online dev environment for GitHub.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jacquesbonet/ant-design-layout)
 
 Or clone locally:
 
 ```bash
-$ git clone git@github.com:ant-design/ant-design.git
-$ cd ant-design
+$ git clone git@github.com:jacquesbonet/ant-design-layout.git
+$ cd ant-design-layout
 $ npm install
-$ npm start
+$ npm run test
 ```
-
-Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/ant-design/ant-design/wiki/Development).
-
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
-Read our [contributing guide](https://ant.design/docs/react/contributing) and let's build a better antd together.
-
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
-
-If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request by [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
-
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
-
-## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)

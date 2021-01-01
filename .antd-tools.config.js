@@ -9,7 +9,7 @@ module.exports = {
 }`;
 }
 
-// We need compile additional content for antd user
+// We need compile additional content for ant-design-layout user
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './lib'))) {
     // Build a entry less file to dist/ant-design-layout.less

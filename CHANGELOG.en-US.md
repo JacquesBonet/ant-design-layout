@@ -5,11 +5,11 @@ toc: false
 timeline: true
 ---
 
-`antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+`ant-design-layout` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### Release Schedule
 
-- When antd publish a release with layout modification
+- When ant-design-layout publish a release with layout modification
 
 ---
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
@@ -22,19 +21,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    justify,
-    align,
-    className,
-    style,
-    children,
-    gutter = 0,
-    wrap,
-    ...others
-  } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { justify, align, className, style, children, gutter = 0, wrap, ...others } = props;
 
   const [screens, setScreens] = React.useState<ScreenMap>({
     xs: true,
@@ -80,7 +67,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return results;
   };
 
-  const prefixCls = getPrefixCls('row', customizePrefixCls);
+  const prefixCls = 'ant-row';
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,

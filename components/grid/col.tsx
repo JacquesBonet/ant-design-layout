@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
-import { ConfigContext } from '../config-provider';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -46,24 +45,11 @@ function parseFlex(flex: FlexType): string {
 }
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
   const { gutter, wrap } = React.useContext(RowContext);
 
-  const {
-    prefixCls: customizePrefixCls,
-    span,
-    order,
-    offset,
-    push,
-    pull,
-    className,
-    children,
-    flex,
-    style,
-    ...others
-  } = props;
+  const { span, order, offset, push, pull, className, children, flex, style, ...others } = props;
 
-  const prefixCls = getPrefixCls('col', customizePrefixCls);
+  const prefixCls = 'ant-col';
 
   let sizeClassObj = {};
   sizes.forEach(size => {

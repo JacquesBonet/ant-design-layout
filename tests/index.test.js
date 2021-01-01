@@ -2,7 +2,7 @@ import pkg from '../package.json';
 
 const testDist = process.env.LIB_DIR === 'dist';
 
-describe('antd dist files', () => {
+describe('ant-design-layout dist files', () => {
   it('exports modules correctly', () => {
     // eslint-disable-next-line global-require,import/no-unresolved
     const antd = testDist ? require('../dist/ant-design-layout') : require('../components');
