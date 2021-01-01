@@ -47,7 +47,8 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-    <br />><Row justify="space-around">
+    <br />
+    <Row justify="space-around">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
