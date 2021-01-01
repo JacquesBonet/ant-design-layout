@@ -1,6 +1,6 @@
 {
   "name": "ant-design-layout",
-  "version": "4.9.6",
+  "version": "4.9.7",
   "description": "Only the layout part of antd library",
   "title": "Ant Design Layout",
   "keywords": [
@@ -75,7 +75,6 @@
     "pretty-quick": "pretty-quick",
     "publish": "npm publish",
     "release": "release-it",
-    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"bisheng start -c ./site/bisheng.config.js\"",
@@ -84,9 +83,7 @@
     "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
-    "site:test": "jest --config .jest.site.js --cache=false --force-exit",
     "test-image": "npm run compile:less && docker-compose run tests",
-    "install-react-16": "npm i --no-save react@16 react-dom@16 react-test-renderer@16 enzyme-adapter-react-16",
     "argos": "argos upload imageSnapshots"
   },
   "husky": {
