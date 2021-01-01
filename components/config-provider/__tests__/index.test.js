@@ -1,9 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import ConfigProvider, { ConfigContext } from '..';
-import Button from '../../button';
-import Table from '../../table';
-import Input from '../../input';
+import ConfigProvider from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
